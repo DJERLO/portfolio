@@ -309,7 +309,7 @@ section.visible {
 }
 
 
-/* ====== PROJECT SECTION ====== */
+/* ====== PROJECT SECTION (Unchanged) ====== */
 #project {
     min-height: 100vh;
     display: flex;
@@ -335,55 +335,52 @@ section.visible {
     border-radius: 10px;
 }
 
-/* Project Grid */
+/* Project Grid (Unchanged) */
 .project-list {
-    display: flex; /* <-- The Flex container */
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
-    justify-content: center; /* Centers items in the container */
+    display: flex; /* The Flex container */
+    flex-wrap: wrap; 
+    justify-content: center;
     gap: 25px;
     max-width: 1100px;
     margin: auto;
 }
-@property --angle{
-  syntax:"<angle>";
-  initial-value: 0deg;
-  inherits:false;
-}
-/* Individual Project Card */
-.project-card {
+
+/* 1. CARD CONTAINER: Sets 3D space, size, and now handles the visual effects on click */
+.card-container {
     flex: 1 1 260px;
     min-width: 260px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(6px);
-    padding: 25px;
-    border-radius: 16px;
-    transition: 0.3s ease;
-    border: 2px solid transparent; /* use transparent border for effect */
+    height: 380px; /* FIXED HEIGHT REQUIRED for 3D flip */
+    perspective: 1000px;
     position: relative;
-    overflow: hidden;
-    cursor: pointer;
+    cursor: pointer; /* Indicates it's clickable */
     z-index: 0;
-    transition: transform 0.3s;
+    transition: transform 0.3s l; /* Transition for the Y-translate/scale movement */
+    border-radius: 16px;
+    overflow: hidden;
 }
 
-/* Hover Animation */
-.project-card:hover {
-    transform: translateY(-6px) scale(1.05);
-    background: rgba(255, 255, 255, 0.15);
+/* **CORRECTION 1: Apply the subtle movement/scale on the '.flipped' class** */
+.card-container.flipped { 
+    transform: translateY(-6px);
 }
 
 /* RGB border glow effect */
-.project-card::before {
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.card-container::before {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 2px; /* border thickness */
+    padding: 2px;
     background: linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta, red);
-    background-size: 500% auto; /* makes the gradient move along the border */
+    background-size: 500% auto;
     mask: 
         linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0) ;
+        linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
@@ -393,7 +390,8 @@ section.visible {
     animation: border-glow 3s ease-out infinite;
 }
 
-.project-card:hover::before {
+/* **CORRECTION 2: Trigger the RGB glow opacity on the '.flipped' class** */
+.card-container.flipped::before {
     opacity: 1;
 }
 
@@ -403,6 +401,81 @@ section.visible {
     50%  { background-position: 180% 0; }
     75%  { background-position: 270% 0; }
     100% { background-position: 359% 0; }
+}
+
+/* 2. CARD WRAPPER: The element that flips */
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+/* THE CLICK-TO-FLIP TRIGGER: Flips the card 180deg */
+.card-container.flipped .card {
+    transform: rotateY(180deg);
+}
+
+/* 3. FACES: Styling, Content Display, and Backface Hiding (Unchanged) */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: inherit;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+}
+
+.card-back {
+    background: rgba(0, 0, 0, 0.85); 
+    color: white;
+    transform: rotateY(180deg);
+    justify-content: space-between;
+}
+
+/* New Styling for Content/Image */
+.card-front img {
+    width: 100%;
+    max-height: 55%; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.card-front .project-info h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+.card-front .project-info p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Styling for Links/Icons on the back face */
+.project-links {
+    display: flex;
+    justify-content: center; 
+    gap: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-links a {
+    color: #00ff88; /* Match the divider color for branding */
+    transition: color 0.3s;
+}
+
+.project-links a:hover {
+    color: white;
 }
 
 /* ====== CONTACT SECTION ====== */
