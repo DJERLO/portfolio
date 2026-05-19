@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // --- Intersection Observer Logic (Handles visibility and navigation highlighting) ---
     const isMobile = window.innerHeight < 768;  
-    const thresholdValue = isMobile ? 0.2 : 0.6;
+    const thresholdValue = isMobile ? 0.25 : 0.6;
 
     const observer = new IntersectionObserver(
         entries => {
