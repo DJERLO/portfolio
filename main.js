@@ -103,3 +103,23 @@ window.addEventListener("scroll", () => {
 scrollTopButton.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+(function() {
+    const trackingId = 'G-C3TQQMTVFB';
+
+    // 1. Inject the external Google Tag script tag asynchronously
+    const gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+    document.head.appendChild(gaScript);
+
+    // 2. Setup the global dataLayer and gtag logic
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() {
+        window.dataLayer.push(arguments);
+    };
+
+    // 3. Initialize tracking configurations
+    window.gtag('js', new Date());
+    window.gtag('config', trackingId);
+})();
