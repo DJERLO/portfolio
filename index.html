@@ -10,7 +10,10 @@
         <meta property="og:description" content="Check out my work in Python, Django, and automation.">
         <meta property="og:type" content="website">
         
-        <!--<link rel="icon" type="image/x-icon" href="/images/favicon.ico">-->
+        <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png">
+        <link rel="manifest" href="static/img/site.webmanifest">
         
         <link rel="stylesheet" href="style.css"/>
         <link href="static/css/fontawesome.css" rel="stylesheet" />
@@ -28,6 +31,7 @@
             <ul class="nav-list-desktop">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#project">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -36,6 +40,7 @@
             <ul id="mobile-menu" class="nav-list-mobile">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#project">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -51,21 +56,26 @@
                 
                 <h1>Hello, I'm <span style="color:yellow;">Jerlo De Leon</span></h1>
                 <p>
-                    A passionate <strong>Computer Science student</strong>, aspiring developer, and tech enthusiast.<br>
-                    I love creating web apps, working with Python, Django, and building automated systems like
-                    <strong>Attendance Tracking</strong>, <strong>Chatbots</strong>, and <strong>more</strong>.
+                    Computer Science Student
+                    Building practical software with Python,
+                    JavaScript, SQL, and AI.
                 </p>
                 
                 <div class="home-tags">
-                    <span>Web Apps</span>
-                    <span>Automation</span>
-                    <span>AI Chatbots</span>
-                    <span>API Development</span>
+                    <span><i class="fab fa-python"></i> Python</span>
+                    <span><i class="fab fa-django"></i> Django</span>
+                    <span><i class="fab fa-js"></i> JavaScript</span>
+                    <span><i class="fas fa-plug"></i> API Development</span>
+                    <span><i class="fas fa-database"></i> SQL</span>
+                    <span><i class="fab fa-docker"></i> Docker</span>
                 </div>
+
+                <button class="accent-btn" onclick="window.location='#about'">
+                    <i class="fas fa-briefcase"></i> View My Projects
+                </button>
                 
-                <button onclick="window.location='#project'"
-                        style="padding: 10px 20px; border: none; cursor: pointer; margin-top: 20px;">
-                    View My Projects
+                <button class="accent-hollow-btn" onclick="window.location='#contact'">
+                    <i class="fas fa-download"></i> Download CV
                 </button>
             </div>
             </section>
@@ -96,6 +106,65 @@
                         <img loading="lazy" src="static/img/content.jpg" alt="About Image">
                     </div>
             
+                </div>
+            </section>
+
+            <!-- Education & Certifications Section -->
+            <section id="education">
+                <div class="content">
+                    <h2 class="header-title">Education</h2>
+                    <div class="divider"></div>
+                    
+                    <div class="edu-cert-container">
+                        <!-- Education Block -->
+                        <div class="education-block">
+                            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                            
+                            <div class="timeline-item">
+                                <h4>BS in Computer Science</h4>
+                                <p class="institution">St. Clare College of Caloocan</p>
+                                <p class="details">2022 - 2026</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Information Technology 11-12</h4>
+                                <p class="institution">St. Clare College of Caloocan</p>
+                            </div>
+                        </div>
+
+                        <!-- Certifications Block -->
+                        <div class="certifications-block">
+                            <h3><i class="fas fa-certificate"></i> Key Certifications</h3>
+                            <div class="cert-grid">
+                                
+                                <div class="cert-item">
+                                    <h4>BSCS Seminar & Industry Tour</h4>
+                                    <p class="issuer">St. Clare College / Evento | Nov 2024</p>
+                                </div>
+
+                                <div class="cert-item">
+                                    <h4>Cyber Security Seminar</h4>
+                                    <p class="issuer">Our Travel Evento Management | Nov 2024</p>
+                                </div>
+
+                                <div class="cert-item">
+                                    <h4>Senior Student Professional Investiture</h4>
+                                    <p class="issuer">St. Clare College of Caloocan | Oct 2024</p>
+                                </div>
+
+                                <div class="cert-item">
+                                    <h4>Generative AI in Virtual Reality</h4>
+                                    <p class="issuer">St. Clare College of Caloocan | Apr 2024</p>
+                                </div>
+
+                                <div class="cert-item">
+                                    <h4>Responsive Web Design</h4>
+                                    <p class="issuer">freeCodeCamp | Dec 2023</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             
@@ -134,9 +203,6 @@
                                     </div>
 
                                     <div class="project-links">
-                                        <a href="https://github.com/DJERLO/attendance-monitoring-system" target="_blank" title="View Live Example">
-                                            <i class="fas fa-external-link-alt fa-2x"></i> 
-                                        </a>
                                         <a href="https://github.com/DJERLO/attendance-monitoring-system" target="_blank" title="Source Code on GitHub">
                                             <i class="fab fa-github fa-2x"></i>
                                         </a>
@@ -171,9 +237,6 @@
                                     </div>
                                     
                                     <div class="project-links">
-                                        <a href="https://github.com/DJERLO/Gemini-Chatbot" target="_blank" title="View Live Example">
-                                            <i class="fas fa-external-link-alt fa-2x"></i> 
-                                        </a>
                                         <a href="https://github.com/DJERLO/Gemini-Chatbot" target="_blank" title="Source Code on GitHub">
                                             <i class="fab fa-github fa-2x"></i>
                                         </a>
@@ -210,9 +273,6 @@
                                     </div>
                                     
                                     <div class="project-links">
-                                        <a href="https://github.com/DJERLO/patient-information-management-system" target="_blank" title="View Live Example">
-                                            <i class="fas fa-external-link-alt fa-2x"></i> 
-                                        </a>
                                         <a href="https://github.com/DJERLO/patient-information-management-system" target="_blank" title="Source Code on GitHub">
                                             <i class="fab fa-github fa-2x"></i>
                                         </a>
@@ -316,17 +376,22 @@
                                     </div>
                                     
                                     <div class="project-links">
-                                        <a href="https://github.com/DJERLO/Simple-Discord-Music-Bot-Using-Nextcord" target="_blank" title="View Live Example">
-                                            <i class="fas fa-external-link-alt fa-2x"></i> 
-                                        </a>
                                         <a href="https://github.com/DJERLO/Simple-Discord-Music-Bot-Using-Nextcord" target="_blank" title="Source Code on GitHub">
                                             <i class="fab fa-github fa-2x"></i>
                                         </a>
                                     </div>
+                                    
                                 </div>
                             </article>
                         </div>
 
+                    </div>
+                    <!-- GitHub Call to Action -->
+                    <div style="text-align: center; margin-top: 40px;">
+                        <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Want to see more? I have 19+ repositories tracking my development journey.</p>
+                        <a href="https://github.com/DJERLO" target="_blank" class="doc-link" style="padding: 10px 24px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+                            <i class="fab fa-github"></i> View All 19 Projects on GitHub
+                        </a>
                     </div>
                 </div>
             </section>
@@ -343,35 +408,67 @@
             
                     <div class="contact-container">
             
-                        <div class="contact-item">
-                            <h1><i class="fa fa-envelope" style="transform: scale(1.5); margin-bottom: 12px;"></i></h1>
+                        <a class="contact-item"
+                        href="https://www.linkedin.com/in/jerlo-de-leon/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                            <h1><i class="fa fa-brands fa-linkedin"></i></h1>
+                            <h3>LinkedIn</h3>
+                            <p>
+                                Jerlo De Leon
+                            </p>
+
+                        </a>
+                        
+                        <a class="contact-item"
+                        href="https://github.com/DJERLO"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        
+                        <h1><i class="fab fa-github"></i></h1>
+                        
+                        <h3>GitHub</h3>
+                        
+                        <p>@DJERLO</p>
+                        
+                        </a>
+            
+                        <a class="contact-item"
+                        href="https://www.facebook.com/jerlo.francisco.deleon/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        
+                        <h1><i class="fa fa-brands fa-facebook"></i></h1>
+                        <h3>Facebook</h3>
+                        <p>
+                                Jerlo F. De Leon
+                            </p>
+                        </a>
+
+                        <a class="contact-item"
+                        href="mailto:jerlodeleon.scc@gmail.com">
+
+                            <h1>
+                                <i class="fa fa-envelope"></i>
+                            </h1>
+
                             <h3>Email</h3>
-                            <p>
-                                <a href="mailto:jerlodeleon.scc@gmail.com">
-                                    jerlodeleon.scc@gmail.com
-                                </a>
-                            </p>
-                        </div>
-            
-                        <div class="contact-item">
-                            <h1><i class="fa fa-brands fa-github" style="transform: scale(1.5); margin-bottom: 12px;"></i></h1>
-                            <h3>GitHub</h3>
-                            <p>
-                                <a href="https://github.com/DJERLO" target="_blank">
-                                    github.com/DJERLO
-                                </a>
-                            </p>
-                        </div>
-            
-                        <div class="contact-item">
-                            <h1><i class="fa fa-brands fa-facebook" style="transform: scale(1.5); margin-bottom: 12px;"></i></h1>
-                            <h3>Facebook</h3>
-                            <p>
-                                <a href="https://www.facebook.com/jerlo.francisco.deleon/" target="_blank">
-                                    facebook.com/jerlo.francisco.deleon
-                                </a>
-                            </p>
-                        </div>
+
+                            <p>jerlodeleon.scc@gmail.com</p>
+
+                        </a>
+                        
+                        <a href="https://discord.com/users/1273213785087152170" target="_blank" class="contact-item">
+                            <h1><i class="fab fa-discord"></i></h1>
+                            <h3>Discord</h3>
+                            <p>@djerlo</p>
+                        </a>
+
+                        <a href="https://t.me/JERLO_F_DELEON" target="_blank" class="contact-item">
+                            <h1><i class="fab fa-telegram"></i></h1>
+                            <h3>Telegram</h3>
+                            <p>Jerlo De Leon</p>
+                        </a>
             
                     </div>
             
